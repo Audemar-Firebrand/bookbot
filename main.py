@@ -5,3 +5,6 @@ def get_book_text():
 
 from stats import book_word_count
 call: book_word_count()
+from stats import character_count
+result = character_count()
+print(f"{result}")
