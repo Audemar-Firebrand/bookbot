@@ -3,7 +3,7 @@ def book_word_count():
        file_contents = f.read()
        words = file_contents.split()
        word_count = len(words)
-    print(f"{word_count} words found in the document")
+    return word_count
 
 def character_count():
     num_characters = {}
@@ -15,4 +15,13 @@ def character_count():
             else:
                 num_characters[character.lower()] = 1
     return num_characters
-        
+
+def bookbot_report(num_characters):
+    numbers = []
+    for character in num_characters:
+        if character.isalpha() == True:
+            numbers.append({"char": character, "num": num_characters[character]})
+    def sort_on(dict):
+        return dict["num"]
+    numbers.sort(reverse=True, key=sort_on)
+    return numbers
