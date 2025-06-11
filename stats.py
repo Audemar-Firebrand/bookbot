@@ -1,13 +1,21 @@
+import sys
+
 def book_word_count():
-    with open("books/frankenstein.txt") as f:
-       file_contents = f.read()
-       words = file_contents.split()
-       word_count = len(words)
+    if len(sys.argv) == 1:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    with open(sys.argv[1]) as f:
+        file_contents = f.read()
+        words = file_contents.split()
+        word_count = len(words)
     return word_count
 
 def character_count():
+    if len(sys.argv) == 1:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
     num_characters = {}
-    with open("books/frankenstein.txt") as f:
+    with open(sys.argv[1]) as f:
         file_contents = f.read()
         for character in file_contents:
             if character.lower() in num_characters:
